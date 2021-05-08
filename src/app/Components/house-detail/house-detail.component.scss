@@ -1,0 +1,18 @@
+.house-detail {
+    position: fixed;
+    width: 70vw;
+    z-index: 99;
+    padding: 48px;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid black;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { House } from 'src/app/Models/house';
+import { HouseDetailComponent } from '../house-detail/house-detail.component';
 
 @Component({
   selector: 'app-house-card',
@@ -10,9 +12,12 @@ export class HouseCardComponent implements OnInit {
 
   @Input() house: House;
 
-  constructor() { }
+  constructor(private matDialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openDetails() {
+    this.matDialog.open(HouseDetailComponent, { role: 'dialog', data: { house: this.house } })
+  }
 }

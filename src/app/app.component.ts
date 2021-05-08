@@ -15,8 +15,7 @@ export class AppComponent implements OnInit {
   houseCount: number = 50;
   page: number = 1;
 
-  scrollThrottle = 150;
-  scrollDistance = 2;
+  scrollDistance = 3;
 
   constructor(private houseService: HouseService, private characterService: CharacterService) {}
 
