@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .house-detail {
     position: fixed;
     width: 70vw;
@@ -6,13 +8,43 @@
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
-    background: white;
-    border: 1px solid black;
+    background: $card-bg;
+    border-radius: $border-radius;
+    color: $text-color;
 
     div {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
+        h2 {
+            font-size: 36px;
+        }
+
+        mat-icon {
+            font-size: 48px;
+            height: 48px;
+            width: 48px;
+            cursor: pointer;
+        }
+    }
+    
+    table {
+        margin-top: 32px;
+        width: 100%;
+
+        tr {
+            td:first-of-type {
+                color: $accent-color;
+                min-width: 15%;
+                max-width: 20%;
+                font-style: italic;
+            }
+
+            td {
+                padding-bottom: 8px;
+            }
+        }
     }
 }

@@ -52,7 +52,14 @@ export class House {
 
         this.diedOut = house.diedOut;
         this.ancestralWeapons = house.ancestralWeapons;
+
         this.cadetBranches = house.cadetBranches;
+        if (this.cadetBranches.length != 0) {
+            const tempHouses: string[] = [];
+            this.cadetBranches.forEach(cadetBranch => {
+                houseService.getHouse(cadetBranch).subscribe((response: any) => tempHouses.push(response.name));
+            })
+        }
 
         this.swornMembers = house.swornMembers;
         if (this.swornMembers.length != 0) {

@@ -4,5 +4,19 @@
 $border-radius: 14px;
 $text: 18px Roboto;
 
-html, body { height: 100%; }
+html, body { 
+    height: 100%;
+    background: $bg-color;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h2 {
+    margin: 0;
+    color: $accent-color;
+    font: 24px GameOfThrones;
+    letter-spacing: 1px;
+}
+
+p {
+    margin: 0;
+}

@@ -1,6 +1,12 @@
 <div class="house-card" (click)="openDetails()">
     <h2>{{house!.name}}</h2>
-    <p>{{house!.region}}</p>
-    <p>{{house!.currentLord}}</p>
+    <p *ngIf="house!.region">
+        <mat-icon>place</mat-icon>
+        {{house!.region}}
+    </p>
+    <p *ngIf="house!.currentLord">
+        <mat-icon>person</mat-icon>
+        {{house!.currentLord}}
+    </p>
     <p>Click for more details</p>
 </div>
