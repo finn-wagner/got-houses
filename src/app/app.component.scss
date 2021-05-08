@@ -34,11 +34,7 @@
         flex-direction: row;
         justify-content: center;
         width: 100%;
-
-        h1 {
-            margin: 0 24px 0 24px;
-            transform: translateY(-50%);
-        }
+        margin-bottom: 16px;
 
         &-border {
             height: 2px;
@@ -65,12 +61,28 @@
         }
     }
 
-    &-spacer {
+    @media (orientation: portrait) {
+        &-header {
+            display: none;
+        }
+    }
+
+    &-title {
         width: calc(100% - 4px);
         height: 60vh;
         border-style: solid;
         border-color: $border-color;
         border-width: 0 2px 0 2px;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (orientation: portrait) {
+        &-title {
+            height: 20vh;
+            border: none;
+        }
     }
 
     &-content {
@@ -82,5 +94,25 @@
         border-color: $border-color;
         border-width: 0 2px 0 2px;
         padding: 0 100px 100px 100px;
+
+        @media (orientation: portrait) {
+            &-card {
+                flex: 0 0 100%;
+            }
+        }
+    }
+
+    @media (orientation: portrait) {
+        &-content {
+            border: none;
+            padding: 0;
+        }
+    }
+}
+
+@media (orientation: portrait) {
+    .main {
+        margin: 65px 24px 0 24px;
+        width: calc(100% - 48px);
     }
 }

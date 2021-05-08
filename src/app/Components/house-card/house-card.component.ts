@@ -17,12 +17,14 @@ export class HouseCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Open a dialog with the details of a house
   openDetails() {
     if(!this.loading()) {
       this.matDialog.open(HouseDetailComponent, { role: 'dialog', data: { house: this.house }, hasBackdrop: true , backdropClass: 'backdrop' })
     }
   }
 
+  // Returns whether the house object is fully populated
   loading(): boolean {
     return (this.house.currentLord == "Loading...")
       || (this.house.heir == "Loading...")

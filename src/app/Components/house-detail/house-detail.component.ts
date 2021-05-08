@@ -11,7 +11,8 @@ export class HouseDetailComponent implements OnInit {
   house: object = {};
 
   constructor(public dialogRef: MatDialogRef<HouseDetailComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
-    console.log(data.house);
+
+    // Filter out unnecessary or non-existent key value pairs, prettify the key names and convert arrays for readability
     for (let key in data.house) {
       const cleanKey = key.replace(/([A-Z]+)/g, ' $1').replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
 
@@ -23,12 +24,12 @@ export class HouseDetailComponent implements OnInit {
         this.house[cleanKey] = data.house[key];
       }
     }
-    console.log(this.house);
   }
 
   ngOnInit(): void {
   }
 
+  // Close the dialog
   close() {
     this.dialogRef.close();
   }

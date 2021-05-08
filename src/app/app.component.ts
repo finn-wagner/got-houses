@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
 
   // Load the first set of results on init of the application
   ngOnInit() {
+    console.log("Initial loading...");
     this.houseService.getHouses(this.page, this.houseCount).subscribe((response: any) => {
       this.houses = response.map(
         (house: any) => new House(house, this.houseService, this.characterService)
@@ -28,11 +29,12 @@ export class AppComponent implements OnInit {
     })
   }
 
+  // Load the next page of results when the user scrolled down
   onScrolled() {
+    console.log("Loading next set of houses...");
     this.page += 1;
     this.houseService.getHouses(this.page, 20).subscribe((data: any) => {
       this.houses = this.houses.concat(data.map((house: any) => new House(house, this.houseService, this.characterService)));
-      console.log(this.houses);
     })
   }
 }

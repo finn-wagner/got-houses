@@ -50,3 +50,27 @@
         }
     }
 }
+
+@media (orientation: portrait) {
+    .house-detail {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        padding: 24px;
+        box-sizing: border-box;
+
+        div {
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        table {
+            tr {
+                th:first-of-type {
+                    width: 25%;
+                }
+            }
+        }
+    }
+}
