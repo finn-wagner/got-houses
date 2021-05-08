@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'GoT Houses';
 
   houses: House[] = [];
-  houseCount: number = 50;
+  houseCount: number = 25;
   page: number = 1;
 
   scrollDistance = 3;

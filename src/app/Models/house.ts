@@ -33,12 +33,12 @@ export class House {
             characterService.getCharacter(house.currentLord).subscribe((response: any) => this.currentLord = response.name);
         }
 
-        this.heir = (house.heir == "") ? "" : null;
+        this.heir = (house.heir == "") ? "" : "Loading...";
         if (house.heir.length != 0) {
             characterService.getCharacter(house.heir).subscribe((response: any) => this.heir = response.name);
         }
 
-        this.overlord = (house.overlord == "") ? "" : null;
+        this.overlord = (house.overlord == "") ? "" : "Loading";
         if(house.overlord.length != 0) {
             houseService.getHouse(house.overlord).subscribe((response: any) => this.overlord = response.name);
         }
@@ -53,18 +53,19 @@ export class House {
         this.diedOut = house.diedOut;
         this.ancestralWeapons = house.ancestralWeapons;
 
-        this.cadetBranches = house.cadetBranches;
-        if (this.cadetBranches.length != 0) {
+        this.cadetBranches = (house.cadetBranches.length == 0) ? null : [];
+        if (house.cadetBranches.length != 0) {
             const tempHouses: string[] = [];
-            this.cadetBranches.forEach(cadetBranch => {
+            house.cadetBranches.forEach(cadetBranch => {
                 houseService.getHouse(cadetBranch).subscribe((response: any) => tempHouses.push(response.name));
             })
+            this.cadetBranches = tempHouses;
         }
 
-        this.swornMembers = house.swornMembers;
-        if (this.swornMembers.length != 0) {
+        this.swornMembers = (house.swornMembers.length == 0) ? null : [];
+        if (house.swornMembers.length != 0) {
             const tempMembers: string[] = [];
-            this.swornMembers.forEach(swornMember => {
+            house.swornMembers.forEach(swornMember => {
                 characterService.getCharacter(swornMember).subscribe((response: any) => tempMembers.push(response.name))
             })
             this.swornMembers = tempMembers;

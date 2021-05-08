@@ -18,6 +18,17 @@ export class HouseCardComponent implements OnInit {
   }
 
   openDetails() {
-    this.matDialog.open(HouseDetailComponent, { role: 'dialog', data: { house: this.house } })
+    if(!this.loading()) {
+      this.matDialog.open(HouseDetailComponent, { role: 'dialog', data: { house: this.house }, hasBackdrop: true , backdropClass: 'backdrop' })
+    }
+  }
+
+  loading(): boolean {
+    return (this.house.currentLord == "Loading...")
+      || (this.house.heir == "Loading...")
+      || (this.house.overlord == "Loading...")
+      || (this.house.founder == "Loading...")
+      || (this.house.cadetBranches == [])
+    ;
   }
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import { Injectable } from '@angular/core';
 export class HouseService {
 
   apiUrl: string = "https://www.anapioficeandfire.com/api/houses";
+
+  cache: object = {};
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +20,12 @@ export class HouseService {
 
   // Get the house to the corresponding URL
   getHouse(url: string) {
-    return this.http.get(url);
+    if(this.cache[url]) {
+      return of(this.cache[url]);
+    } else {
+      const observable = this.http.get(url);
+      observable.subscribe((response: any) => this.cache[url] = response);
+      return observable;
+    }
   }
 }

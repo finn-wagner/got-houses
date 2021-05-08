@@ -6,6 +6,8 @@
     color: $text-color;
     border-radius: $border-radius;
     cursor: pointer;
+    transform: perspective(1px) translateZ(0);
+    -webkit-transform: perspective(1px) translateZ(0);
 
     h2 {
         margin-bottom: 24px;
@@ -28,5 +30,33 @@
         margin-top: 24px;
         font: 14px Roboto 500;
         font-style: italic;
+    }
+}
+
+.house-card:hover {
+    animation: card-hover 0.2s linear;
+    -webkit-animation: card-hover 0.2s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: card-hover 0.2s linear;
+}
+
+@keyframes card-hover {
+    100% {
+      transform: scale(1.05);
+    }
+}
+
+@-webkit-keyframes card-hover {
+    100% {
+      -webkit-transform: scale(1.05);
+    }
+}
+
+.house-card-loading {
+    background: linear-gradient(90deg, rgba(212,120,83,1) 0%, rgba(149,66,32,1) 100%) !important;
+    cursor: default;
+
+    * {
+        visibility: hidden;
     }
 }

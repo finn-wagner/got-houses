@@ -1,9 +1,86 @@
+@import '../styles.scss';
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../assets/images/bg.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: calc(100vw * 0.592);
+
+    div {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(0deg, rgba(15,16,18,1) 0%, rgba(15,16,18,.5) 65%, rgba(15,16,18,0) 100%);
+    }
+}
+
 .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 134px);
+    margin: 65px 67px 65px 67px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+
+        h1 {
+            margin: 0 24px 0 24px;
+            transform: translateY(-50%);
+        }
+
+        &-border {
+            height: 2px;
+            background: $border-color;
+            flex-grow: 1;
+        }
+
+        &-corner-left {
+            border-width: 2px 0 0 2px;
+            margin-right: 16px;
+            height: 24px;
+            flex: 0 0 24px;
+            border-style: solid;
+            border-color: $border-color;
+        }
+
+        &-corner-right {
+            border-width: 2px 2px 0 0;
+            margin-left: 16px;
+            height: 24px;
+            flex: 0 0 24px;
+            border-style: solid;
+            border-color: $border-color;
+        }
+    }
+
+    &-spacer {
+        width: calc(100% - 4px);
+        height: 60vh;
+        border-style: solid;
+        border-color: $border-color;
+        border-width: 0 2px 0 2px;
+    }
 
     &-content {
         display: flex;
         flex-direction: row;
         gap: 38px;
         flex-wrap: wrap;
+        border-style: solid;
+        border-color: $border-color;
+        border-width: 0 2px 0 2px;
+        padding: 0 100px 100px 100px;
     }
 }

@@ -1,4 +1,15 @@
+<div class="bg">
+  <div></div>
+</div>
 <div class="main">
+  <div class="main-header">
+    <div class="main-header-corner-left"></div>
+    <div class="main-header-border"></div>
+    <h1>GoT Houses</h1>
+    <div class="main-header-border"></div>
+    <div class="main-header-corner-right"></div>
+  </div>
+  <div class="main-spacer"></div>
   <div class="main-content" infinite-scroll [infiniteScrollDistance]="scrollDistance" (scrolled)="onScrolled()">
     <app-house-card *ngFor="let house of houses" [house]="house"></app-house-card>
   </div>

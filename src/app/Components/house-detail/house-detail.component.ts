@@ -15,9 +15,9 @@ export class HouseDetailComponent implements OnInit {
     for (let key in data.house) {
       const cleanKey = key.replace(/([A-Z]+)/g, ' $1').replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
 
-      if(data.house[key] == "" || key == "url") {
+      if(data.house[key] == "" || data.house[key] == null || key == "url" || key == "name") {
         continue;
-      } else if (key == "swornMembers" || key == "seats" || key == "titles") {
+      } else if (key == "swornMembers" || key == "seats" || key == "titles" || key == "cadetBranches") {
         this.house[cleanKey] = data.house[key].join(", ");
       } else {
         this.house[cleanKey] = data.house[key];
