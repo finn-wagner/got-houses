@@ -1,0 +1,9 @@
+.main {
+
+    &-content {
+        display: flex;
+        flex-direction: row;
+        gap: 38px;
+        flex-wrap: wrap;
+    }
+}

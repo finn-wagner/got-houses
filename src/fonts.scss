@@ -1,0 +1,10 @@
+@font-face {
+    font-family: GameOfThrones;
+    src: url('./assets/fonts/GameofThrones.eot');
+    src: url('./assets/fonts/GameofThrones.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/GameofThrones.woff2') format('woff2'),
+        url('./assets/fonts/GameofThrones.woff') format('woff'),
+        url('./assets/fonts/GameofThrones.svg#GameofThrones') format('svg');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,500&display=swap');
