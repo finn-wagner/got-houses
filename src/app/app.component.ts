@@ -12,8 +12,11 @@ export class AppComponent implements OnInit {
   title = 'GoT Houses';
 
   houses: House[] = [];
-  houseCount: number = 20;
+  houseCount: number = 50;
   page: number = 1;
+
+  scrollThrottle = 150;
+  scrollDistance = 2;
 
   constructor(private houseService: HouseService, private characterService: CharacterService) {}
 
@@ -23,6 +26,14 @@ export class AppComponent implements OnInit {
       this.houses = response.map(
         (house: any) => new House(house, this.houseService, this.characterService)
       );
+    })
+  }
+
+  onScrolled() {
+    this.page += 1;
+    this.houseService.getHouses(this.page, 20).subscribe((data: any) => {
+      this.houses = this.houses.concat(data.map((house: any) => new House(house, this.houseService, this.characterService)));
+      console.log(this.houses);
     })
   }
 }

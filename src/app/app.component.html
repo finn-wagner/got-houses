@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="main-content">
+  <div class="main-content" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="scrollThrottle" (scrolled)="onScrolled()">
     <app-house-card *ngFor="let house of houses" [house]="house"></app-house-card>
   </div>
 </div>
